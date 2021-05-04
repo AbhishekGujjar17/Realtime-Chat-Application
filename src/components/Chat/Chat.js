@@ -20,12 +20,7 @@ const Chat = ({ location }) => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
 
-  var connectionOptions =  {
-    "force new connection" : true,
-    "reconnectionAttempts": "Infinity", 
-    "timeout" : 10000,                  
-    "transports" : ["websocket"]
-};
+ 
 
 
   useEffect(() => {
@@ -41,7 +36,7 @@ const Chat = ({ location }) => {
         alert(error);
       }
     });
-  }, [ENDPOINT, location.search]);
+  }, [location.search]);
   
   useEffect(() => {
     socket.on('message', message => {
